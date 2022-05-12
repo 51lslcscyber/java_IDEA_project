@@ -1,3 +1,4 @@
+//三个字符的数据结构节点
 public class ListNode {
     int val;
     ListNode next;
