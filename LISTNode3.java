@@ -509,3 +509,78 @@ class Solution {
         return false;
     }
 }
+
+//4244572
+//给你一个 32 位的有符号整数 x ，返回将 x 中的数字部分反转后的结果。
+//
+//如果反转后整数超过 32 位的有符号整数的范围 [−231,  231 − 1] ，就返回 0。
+//
+//假设环境不允许存储 64 位整数（有符号或无符号）。
+//
+// 
+//
+//示例 1：
+//
+//输入：x = 123
+//输出：321
+//
+//示例 2：
+//
+//输入：x = -123
+//输出：-321
+//
+//示例 3：
+//
+//输入：x = 120
+//输出：21
+//
+//示例 4：
+//
+//输入：x = 0
+//输出：0
+//
+// 
+//
+//提示：
+//
+//-231 <= x <= 231 - 1
+class Solution {
+    public int reverse(int x) {
+        long xx = x;
+        long r;
+        long y = 0;
+        boolean sign = xx < 0;
+        while (xx != 0) {
+            r = xx % 10;
+            y = y * 10 + r;
+            if (sign) {
+                xx = (long) Math.ceil(xx / 10);
+            } else {
+                xx = (long) Math.floor(xx / 10);
+            }
+        }
+        return y > Integer.MAX_VALUE || y < Integer.MIN_VALUE ? 0 : (int) y;
+    }
+}
+//4244573
+//从键盘输入5个整型值 1）按从大到小顺序排序方法； 2）计算这些数的平均值的方法； 3）在主方法中调用这些方法，并输出相应的值。
+import java.util.*;
+class java_7445932 {
+    public static void main(String[] args) {
+        List<Integer> list = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+        for (int a = 1; a < 6; a++) {
+            System.out.print("请输入第 " + a + " 个值：");
+            list.add(scanner.nextInt());
+        }
+        System.out.println(descending(list));
+        System.out.println(getAvg(list));
+    }
+    public static List<Integer> descending(List<Integer> list) {
+        list.sort(Collections.reverseOrder());
+        return list;
+    }
+    public static Double getAvg(List<Integer> list) {
+        return list.stream().mapToInt(Integer::new).average().getAsDouble();
+    }
+}
