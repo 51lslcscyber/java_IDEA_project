@@ -692,3 +692,21 @@ class Solution {
         return lcp.toString();
     }
 }
+
+//4320096
+//100元怎么买100个蛋，鸡蛋1毛一个，鸭蛋3元一个，鹅蛋6元一个
+public class Egg {
+    public static void main(String[] args) {
+        int chicken = 0, duck = 0, goose = 0;
+        for (int i = 0; i < 100; i++) {
+            chicken = i;
+            for (int j = 0; j < 100; j++) {
+                duck = j;
+                goose = 100 - duck - chicken;
+                if (chicken + duck * 30 + goose * 60 == 1000 && chicken > 0 && duck > 0 && goose > 0) {
+                    System.out.println("鸡:" + chicken + "  鸭:" + duck + "  鹅:" + goose);
+                }
+            }
+        }
+    }
+}
