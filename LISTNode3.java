@@ -744,3 +744,16 @@ public static void main(String[] args){
             System.out.println(x+ "不是素数");
         }
     }
+//4385818
+//如：abcd1234，逆序输出：4321dcba
+import java.lang.*;
+        import java.io.*;
+        import java.util.*;
+class ReverseString {
+    public static void main(String[] args) {
+        String input = "abcd1234";
+        char[] try1 = input.toCharArray();
+        for (int i = try1.length - 1; i >= 0; i--)
+            System.out.print(try1[i]);
+    }
+}
