@@ -747,13 +747,42 @@ public static void main(String[] args){
 //4385818
 //如：abcd1234，逆序输出：4321dcba
 import java.lang.*;
-        import java.io.*;
-        import java.util.*;
-class ReverseString {
+import java.io.*;
+import java.util.*;
+public class ReverseString {
     public static void main(String[] args) {
         String input = "abcd1234";
         char[] try1 = input.toCharArray();
         for (int i = try1.length - 1; i >= 0; i--)
             System.out.print(try1[i]);
+    }
+}
+
+//4428671
+//给定一个字符串“today is a special day”,长度任意，要求找出其出现次数最多的字符及计算次数。
+import java.util.HashMap;
+        import java.util.Map;
+public class java_256052 {
+    public static void main(String[] args) {
+        String string = "Thinking in Java";
+        char[] ch = string.toCharArray();
+        Map<Character, Integer> result = new HashMap<Character, Integer>();
+        for (int i = 0; i < ch.length; i++) {
+            if (result.containsKey(ch[i])) {
+                int count = result.get(ch[i]) + 1;
+                result.put(ch[i], count);
+            } else {
+                result.put(ch[i], 1);
+            }
+        }
+        Character maxChar = null;
+        Integer maxCount = 0;
+        for (java.util.Map.Entry<Character, Integer> entry : result.entrySet()) {
+            if (entry.getValue() > maxCount) {
+                maxChar = entry.getKey();
+                maxCount = entry.getValue();
+            }
+        }
+        System.out.println("字符: " + maxChar + " 出现的字数最多,为 " + maxCount + " 次");
     }
 }
