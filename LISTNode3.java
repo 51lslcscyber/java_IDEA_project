@@ -786,3 +786,5 @@ public class java_256052 {
         System.out.println("字符: " + maxChar + " 出现的字数最多,为 " + maxCount + " 次");
     }
 }
+
+7.21
